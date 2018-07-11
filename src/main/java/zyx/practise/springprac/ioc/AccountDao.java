@@ -6,4 +6,5 @@
 package zyx.practise.springprac.ioc;
 
 public interface AccountDao {
+    void addAccount();
 }

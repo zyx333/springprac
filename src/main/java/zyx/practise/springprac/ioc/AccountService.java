@@ -5,5 +5,6 @@
  */
 package zyx.practise.springprac.ioc;
 
-public class AccountService {
+public interface AccountService {
+    void doSomething();
 }

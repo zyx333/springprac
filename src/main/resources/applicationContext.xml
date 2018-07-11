@@ -22,4 +22,9 @@
             <aop:after method="after" pointcut-ref="pointcut"/>
         </aop:aspect>
     </aop:config>
+
+    <bean name="accountDao" class="zyx.practise.springprac.ioc.AccountDaoImpl"/>
+    <bean name="accountService" class="zyx.practise.springprac.ioc.AccountServiceImpl">
+            <property name="accountDao" ref="accountDao"/>
+    </bean>
 </beans>

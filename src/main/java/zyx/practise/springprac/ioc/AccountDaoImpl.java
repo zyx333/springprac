@@ -5,5 +5,9 @@
  */
 package zyx.practise.springprac.ioc;
 
-public class AccountDaoImpl {
+public class AccountDaoImpl implements AccountDao {
+    @Override
+    public void addAccount() {
+        System.out.println("addAccount...");
+    }
 }

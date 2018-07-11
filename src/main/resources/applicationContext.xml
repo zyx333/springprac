@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:aspectj-autoproxy/>
+
+    <bean id="userDao" class="zyx.practise.springprac.UserDaoImpl"/>
+
+    <bean id="myAspect" class="zyx.practise.springprac.aspect.MyAspect"/>
+
+    <bean name="myAspectXML" class="zyx.practise.springprac.aspect.MyAspectXML"/>
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* zyx.practise.springprac.UserDao.updateUser(..))"/>
+        <aop:pointcut id="delPointcut" expression="execution(* zyx.practise.springprac.UserDao.deleteUser(..))"/>
+
+        <aop:aspect ref="myAspectXML" order="0">
+            <aop:before method="before" pointcut-ref="pointcut"/>
+            <aop:after-returning method="afterReturn" pointcut-ref="pointcut" returning="returnVal"/>
+            <aop:around method="around" pointcut-ref="pointcut"/>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pointcut" throwing="throwable"/>
+            <aop:after method="after" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import zyx.practise.springprac.ioc.Account;
 import zyx.practise.springprac.ioc.AccountService;
 import zyx.practise.springprac.ioc.BeanConfiguration;
 
@@ -19,6 +20,10 @@ public class AccountServiceIocTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/applicationContext.xml");
         AccountService accountService = (AccountService) applicationContext.getBean("accountService");
         accountService.doSomething();
+
+        Account account = (Account) applicationContext.getBean("account");
+        System.out.println(account.getBooks());
+        account.getAccountDao().addAccount();
     }
 
     @Test

@@ -5,5 +5,31 @@
  */
 package zyx.practise.springprac.autowiring.useannotation;
 
-public class MailServiceResourceImpl {
+import org.springframework.beans.factory.annotation.Value;
+import zyx.practise.springprac.autowiring.MailDao;
+import zyx.practise.springprac.autowiring.MailService;
+
+import javax.annotation.Resource;
+
+public class MailServiceResourceImpl implements MailService {
+
+//    @Resource(name = "mailDao")
+    private MailDao mailDao;
+
+    @Value("${jdbc.url}")
+    private String url;
+//    public MailServiceResourceImpl(MailDao mailDao) {
+//        this.mailDao = mailDao;
+//    }
+
+    @Resource
+    public void setMailDao(MailDao mailDao) {
+        this.mailDao = mailDao;
+    }
+
+    @Override
+    public void done() {
+        mailDao.done();
+        System.out.println(url);
+    }
 }

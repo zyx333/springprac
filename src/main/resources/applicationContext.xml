@@ -11,6 +11,19 @@
 
     <aop:aspectj-autoproxy/>
     <context:annotation-config/>
+    <context:component-scan base-package="zyx.practise.springprac.annotations"/>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="location" value="conf.properties"/>
+    </bean>
+
+    <bean id="configureProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath*:conf.properties</value>
+            </list>
+        </property>
+    </bean>
 
     <bean id="userDao" class="zyx.practise.springprac.UserDaoImpl"/>
 
@@ -70,4 +83,5 @@
     <bean name="mailService" autowire="byName" class="zyx.practise.springprac.autowiring.MailServiceImpl"/>
     <bean name="mailServiceCons" autowire="constructor" class="zyx.practise.springprac.autowiring.MailServiceConstructorImpl"/>
     <bean name="mailServiceAnno" class="zyx.practise.springprac.autowiring.useannotation.MailServiceAnnotationImpl"/>
+    <bean name="mailServiceResource" class="zyx.practise.springprac.autowiring.useannotation.MailServiceResourceImpl"/>
 </beans>

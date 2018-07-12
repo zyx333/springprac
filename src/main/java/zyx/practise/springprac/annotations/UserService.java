@@ -6,4 +6,5 @@
 package zyx.practise.springprac.annotations;
 
 public interface UserService {
+    void testUpdate();
 }

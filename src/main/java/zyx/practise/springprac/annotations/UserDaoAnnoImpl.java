@@ -5,5 +5,30 @@
  */
 package zyx.practise.springprac.annotations;
 
-public class UserDaoAnnoImpl {
+import org.springframework.stereotype.Repository;
+import zyx.practise.springprac.UserDao;
+
+@Repository
+public class UserDaoAnnoImpl implements UserDao {
+
+
+    @Override
+    public int addUser() {
+        return 321;
+    }
+
+    @Override
+    public void updateUser() {
+        System.out.println("update user with annotation injection");
+    }
+
+    @Override
+    public void deleteUser() {
+
+    }
+
+    @Override
+    public void findUser() {
+
+    }
 }

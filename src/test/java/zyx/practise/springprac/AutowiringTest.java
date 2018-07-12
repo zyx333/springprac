@@ -13,13 +13,17 @@ public class AutowiringTest {
     @Test
     public void testAutowiring() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        MailService mailService = (MailService) applicationContext.getBean("mailService");
-        mailService.done();
 
-        MailService mailService1 = (MailService) applicationContext.getBean("mailServiceCons");
-        mailService1.done();
+//        MailService mailService = (MailService) applicationContext.getBean("mailService");
+//        mailService.done();
+//
+//        MailService mailService1 = (MailService) applicationContext.getBean("mailServiceCons");
+//        mailService1.done();
 
-        MailService mailService2 = (MailService) applicationContext.getBean("mailServiceAnno");
-        mailService2.done();
+//        MailService mailService2 = (MailService) applicationContext.getBean("mailServiceAnno");
+//        mailService2.done();
+
+        MailService mailService3 = (MailService) applicationContext.getBean("mailServiceResource");
+        mailService3.done();
     }
 }

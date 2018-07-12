@@ -10,18 +10,21 @@ import zyx.practise.springprac.autowiring.MailDao;
 import zyx.practise.springprac.autowiring.MailService;
 
 public class MailServiceAnnotationImpl implements MailService {
+
     @Autowired
+    @Qualifier("mailDao")
     private MailDao mailDao;
 
-    @Autowired
-    public MailServiceAnnotationImpl(MailDao mailDao) {
-        this.mailDao = mailDao;
-    }
+//    @Autowired
+//    public MailServiceAnnotationImpl(MailDao mailDao) {
+//        this.mailDao = mailDao;
+//    }
 
-    @Autowired
-    public void setMailDao(MailDao mailDao) {
-        this.mailDao = mailDao;
-    }
+
+//    @Autowired
+//    public void setMailDao(MailDao mailDao) {
+//        this.mailDao = mailDao;
+//    }
 
     @Override
     public void done() {

@@ -5,5 +5,17 @@
  */
 package zyx.practise.springprac.annotations;
 
-public class UserServiceAnnoImpl {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import zyx.practise.springprac.UserDao;
+
+@Service
+public class UserServiceAnnoImpl implements UserService {
+    @Autowired
+    private UserDao userDao;
+
+    @Override
+    public void testUpdate() {
+        userDao.updateUser();
+    }
 }

@@ -17,6 +17,6 @@ public class UserServiceAnnoImpl implements UserService {
     @Override
     public void testUpdate() {
 //        userDao.updateUser();
-        System.out.println("execute");
+        System.out.println("execute update");
     }
 }
